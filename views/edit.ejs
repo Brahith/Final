@@ -1,0 +1,35 @@
+<%- include('Partials/header.ejs') %>
+
+<div class="container">
+  <h2>Edit Task</h2>
+  <form action="/edit/<%= task._id %>" method="POST">
+    <div class="form-group">
+      <label for="name">Task Name</label>
+      <input type="text" id="name" name="name" class="form-control" value="<%= task.name %>" required>
+    </div>
+    <div class="form-group">
+      <label for="end_date">End Date</label>
+      <input type="date" id="end_date" name="end_date" class="form-control" value="<%= task.end_date.toISOString().substring(0, 10) %>" required>
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" name="status" class="form-control" required>
+        <option value="Not Started" <%= task.status === 'Not Started' ? 'selected' : '' %>>Not Started</option>
+        <option value="In Progress" <%= task.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+        <option value="Completed" <%= task.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+        <option value="Cancelled" <%= task.status === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select id="priority" name="priority" class="form-control" required>
+        <option value="High" <%= task.priority === 'High' ? 'selected' : '' %>>High</option>
+        <option value="Medium" <%= task.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+        <option value="Low" <%= task.priority === 'Low' ? 'selected' : '' %>>Low</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+</div>
+
+<%- include('Partials/footer.ejs') %>

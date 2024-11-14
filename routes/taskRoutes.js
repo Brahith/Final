@@ -1,15 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const taskController = require('../controllers/taskController'); // Make sure the path is correct
 
-// In-memory array to store tasks
-let tasks = [
-  { name: 'Complete Project Proposal', endDate: 'Dec 09, 2024', status: 'Not Started', priority: 'High' },
-  { name: 'Design UI Mockups', endDate: 'Nov 20, 2024', status: 'In Progress', priority: 'Medium' },
-];
+// Route to render all tasks
+router.get('/', taskController.getAllTasks);
 
-// GET request to fetch tasks
-router.get('/', (req, res) => {
-  res.render('index', { tasks });
-});
+// Route to render form to create a new task
+router.get('/create', taskController.renderCreateForm);
+
+// Route to handle new task submission
+router.post('/create', taskController.createTask);
+
+// Route to render edit form for a task
+router.get('/edit/:id', taskController.renderEditForm);
+
+// Route to handle edit submission
+router.post('/edit/:id', taskController.updateTask);
+
+// Route to handle task deletion
+router.post('/delete/:id', taskController.deleteTask);
 
 module.exports = router;
