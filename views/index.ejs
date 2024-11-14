@@ -1,4 +1,5 @@
 <%- include Partials/header.ejs %>
+
 <body>
 
   <!-- Header Section -->
@@ -6,12 +7,26 @@
     <div class="logo-container">
       <h1>Task Manager</h1>
     </div>
+    <div class="header-buttons">
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
   </header>
+
+  <!-- Search Bar Section -->
+  <div class="search-container">
+    <input type="text" id="taskSearch" placeholder="Search tasks by name...">
+    <i class="fas fa-search search-icon"></i>
+  </div>
 
   <!-- Main Content Section -->
   <main>
     <section class="task-list">
-      <h2>Active Tasks</h2>
+      <div class="task-list-header">
+        <h2>Active Tasks</h2>
+        <button class="create-task-btn" onclick="window.location.href='/create'">
+          <i class="fas fa-plus"></i> New Task
+        </button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -22,17 +37,17 @@
             <th>Actions</th>
           </tr>
         </thead>
+        
         <tbody id="taskTableBody">
-          <!-- Static Task Rows -->
+          <!-- Static Task Rows with Icons -->
           <tr>
             <td>Complete Project Proposal</td>
             <td>Dec 09, 2024</td>
             <td>Not Started</td>
             <td>High</td>
             <td>
-              <!-- Actions Placeholder -->
-              <button class="action-btn">Edit</button>
-              <button class="action-btn">Delete</button>
+              <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+              <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
             </td>
           </tr>
           <tr>
@@ -41,9 +56,8 @@
             <td>In Progress</td>
             <td>Medium</td>
             <td>
-              <!-- Actions Placeholder -->
-              <button class="action-btn">Edit</button>
-              <button class="action-btn">Delete</button>
+              <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+              <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
             </td>
           </tr>
           <tr>
@@ -52,9 +66,8 @@
             <td>Completed</td>
             <td>Low</td>
             <td>
-              <!-- Actions Placeholder -->
-              <button class="action-btn">Edit</button>
-              <button class="action-btn">Delete</button>
+              <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+              <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
             </td>
           </tr>
         </tbody>
@@ -67,4 +80,5 @@
     <p>&copy; 2024 Task Manager. All rights reserved.</p>
   </footer>
 
+  <script src="main.js"></script>
 </body>
