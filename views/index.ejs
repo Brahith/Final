@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Manager</title>
-  <link rel="stylesheet" href="/Content/style.css">
-</head>
+<%- include Partials/header.ejs %>
 <body>
 
   <!-- Header Section -->
@@ -30,18 +23,40 @@
           </tr>
         </thead>
         <tbody id="taskTableBody">
-          <% tasks.forEach(task => { %>
+          <!-- Static Task Rows -->
           <tr>
-            <td><%= task.name %></td>
-            <td><%= task.endDate %></td>
-            <td><%= task.status %></td>
-            <td><%= task.priority %></td>
+            <td>Complete Project Proposal</td>
+            <td>Dec 09, 2024</td>
+            <td>Not Started</td>
+            <td>High</td>
             <td>
-              <button class="edit-btn">Edit</button>
-              <button class="delete-btn">Delete</button>
+              <!-- Actions Placeholder -->
+              <button class="action-btn">Edit</button>
+              <button class="action-btn">Delete</button>
             </td>
           </tr>
-          <% }); %>
+          <tr>
+            <td>Design UI Mockups</td>
+            <td>Nov 20, 2024</td>
+            <td>In Progress</td>
+            <td>Medium</td>
+            <td>
+              <!-- Actions Placeholder -->
+              <button class="action-btn">Edit</button>
+              <button class="action-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Write Documentation</td>
+            <td>Dec 15, 2024</td>
+            <td>Completed</td>
+            <td>Low</td>
+            <td>
+              <!-- Actions Placeholder -->
+              <button class="action-btn">Edit</button>
+              <button class="action-btn">Delete</button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -53,4 +68,3 @@
   </footer>
 
 </body>
-</html>
