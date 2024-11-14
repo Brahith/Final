@@ -1,7 +1,8 @@
+/* Index.ejs CSS Style */
 /* Reset and Basic Styles */
 * {
   margin: 0;
-  padding: 0;
+  padding: 0px;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
@@ -133,3 +134,5 @@ footer {
   color: #777;
   font-size: 14px;
 }
+
+

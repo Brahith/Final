@@ -1,0 +1,70 @@
+/* Create.ejs CSS Style */
+
+/* Centering Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f6f8;
+    margin: 0;
+  }
+  
+  /* Container for Create Page */
+  .container {
+    width: 80%;
+    max-width: 500px; /* Added for better control on larger screens */
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Optional: Added for rounded corners */
+  }
+  
+  /* Title Styling */
+  .container h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Form Group Styling */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  /* Create Task Button */
+  .btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+  }
