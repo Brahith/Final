@@ -40,7 +40,7 @@
           <% tasks.forEach(task => { %>
             <tr>
               <td><%= task.name %></td>
-              <td><%= task.endDate %></td>
+              <td><%= new Date(task.end_date).toLocaleDateString('en-CA') %></td>
               <td><%= task.status %></td>
               <td><%= task.priority %></td>
               <td>
