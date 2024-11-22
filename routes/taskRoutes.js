@@ -51,7 +51,7 @@ router.post('/login', function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            return res.redirect('/Task');
+            return res.redirect('/'); // Changed from '/Task' to '/'
         });
     })(req, res, next);
 });
@@ -90,7 +90,7 @@ router.post('/register', function (req, res, next) {
             });
         } else {
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/Task');
+                res.redirect('/'); // Changed from '/Task' to '/'
             });
         }
     });
