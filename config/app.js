@@ -24,9 +24,9 @@ app.set('view engine', 'ejs');
 let session = require('express-session');
 let passport = require('passport');
 let passportLocal = require('passport-local');
-let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
-
+passport.use(User.createStrategy());
+let localStrategy = passportLocal.Strategy;
 // Import and connect to MongoDB
 const connectDB = require('./db');
 connectDB();  // Use the function from db.js to connect to MongoDB
