@@ -65,3 +65,14 @@ exports.deleteTask = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+
+exports.getAllTasks = async (req, res) => {
+  const displayName = req.user ? req.user.displayName : null; // Pass displayName to views
+  try {
+    const tasks = await Task.find();
+    res.render('index', { tasks, displayName });
+  } catch (err) {
+    console.error('Error fetching tasks:', err);
+    res.status(500).send('Internal Server Error');
+  }
+};

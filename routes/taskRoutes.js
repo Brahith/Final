@@ -107,3 +107,18 @@ router.get('/logout', function (req, res, next) {
 });
 
 module.exports = router;
+
+function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.status(401).json({ message: 'Please log in to continue' });
+  }
+  
+  router.get('/', taskController.getAllTasks);
+  router.get('/create', isAuthenticated, taskController.renderCreateForm);
+  router.post('/create', isAuthenticated, taskController.createTask);
+  router.get('/edit/:id', isAuthenticated, taskController.renderEditForm);
+  router.post('/edit/:id', isAuthenticated, taskController.updateTask);
+  router.post('/delete/:id', isAuthenticated, taskController.deleteTask);
+  
