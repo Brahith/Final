@@ -1,1 +1,9 @@
-./node_modules
+# Ignore node_modules (if not already done)
+node_modules/
+
+# Ignore the .env file (it contains sensitive information)
+.env
+
+# Ignore logs, OS-specific files, etc.
+*.log
+.DS_Store
