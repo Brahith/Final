@@ -3,10 +3,23 @@
 <!-- Header Section -->
 <header>
   <div class="logo-container">
-    <h1>Task Manager</h1>
+    <a href="/" class="home-link">
+      <h1>Task Manager</h1>
+    </a>
   </div>
   <div class="header-buttons">
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <!-- Navigation Links -->
+    <a href="/" class="nav-link">Task Manager</a>
+    <% if (typeof displayName === 'string' && displayName) { %>
+      <span>Welcome, <%= displayName %></span>
+      <a class="nav-link" href="/logout">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    <% } else { %>
+      <a class="nav-link" href="/login">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </a>
+    <% } %>
   </div>
 </header>
 
