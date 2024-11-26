@@ -1,16 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Task Manager</title>
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/Content/style.css">
+
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="@fortawesome/fontawesome-free/css/all.min.css">
-    <script src="/Script/app.js"></script>
-    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Local FontAwesome (if needed) -->
+    <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+
+    <!-- Custom JS -->
+    <script src="/Script/app.js" defer></script>
+
+    <!-- Bootstrap JS -->
+    <script src="/bootstrap/dist/js/bootstrap.min.js" defer></script>
   </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Task Manager</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <% if (typeof displayName === 'string' && displayName) { %>
+            <li class="nav-item">
+              <span class="navbar-text">Welcome, <%= displayName %></span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+                <i class="fas fa-sign-in-alt"></i> Login
+              </a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+  </body>
 </html>

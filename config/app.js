@@ -55,4 +55,10 @@ app.use('/Content', express.static(path.join(__dirname, '../public/Content')));
 // Routes
 app.use('/', taskRoutes);
 
+app.use((req, res, next) => {
+    res.locals.displayName = req.user ? req.user.displayName : null;
+    next();
+  });
+  
+
 module.exports = app;

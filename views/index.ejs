@@ -1,49 +1,56 @@
 <%- include('Partials/header') %>
 
-  <!-- Header Section -->
-  <header>
-    <div class="logo-container">
-      <h1>Task Manager</h1>
-    </div>
-    <div class="header-buttons">
-      <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-    </div>
-  </header>
-
-  <!-- Search Bar Section -->
-  <div class="search-container">
-    <input type="text" id="taskSearch" placeholder="Search tasks by name/category...">
-    <i class="fas fa-search search-icon"></i>
+<!-- Header Section -->
+<header>
+  <div class="logo-container">
+    <h1>Task Manager</h1>
   </div>
+  <div class="header-buttons">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </div>
+</header>
 
-  <!-- Main Content Section -->
-  <main>
-    <section class="task-list">
-      <div class="task-list-header">
-        <h2>Active Tasks</h2>
+<!-- Search Bar Section -->
+<div class="search-container">
+  <input type="text" id="taskSearch" placeholder="Search tasks by name/category...">
+  <i class="fas fa-search search-icon"></i>
+</div>
+
+<!-- Main Content Section -->
+<main>
+  <section class="task-list">
+    <div class="task-list-header">
+      <h2>Active Tasks</h2>
+      <% if (typeof displayName === 'string' && displayName) { %>
         <button class="create-task-btn" onclick="window.location.href='/create'">
           <i class="fas fa-plus"></i> New Task
         </button>
-      </div>
-      <table>
-        <thead>
+      <% } else { %>
+        <button class="create-task-btn" onclick="alert('Log in to create tasks')">
+          <i class="fas fa-plus"></i> New Task
+        </button>
+      <% } %>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      
+      <tbody id="taskTableBody">
+        <% tasks.forEach(task => { %>
           <tr>
-            <th>Task Name</th>
-            <th>End Date</th>
-            <th>Status</th>
-            <th>Priority</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        
-        <tbody id="taskTableBody">
-          <% tasks.forEach(task => { %>
-            <tr>
-              <td><%= task.name %></td>
-              <td><%= new Date(task.end_date).toISOString().split('T')[0] %></td>
-              <td><%= task.status %></td>
-              <td><%= task.priority %></td>
-              <td>
+            <td><%= task.name %></td>
+            <td><%= new Date(task.end_date).toISOString().split('T')[0] %></td>
+            <td><%= task.status %></td>
+            <td><%= task.priority %></td>
+            <td>
+              <% if (typeof displayName === 'string' && displayName) { %>
                 <button class="action-btn edit-btn" onclick="window.location.href='/edit/<%= task._id %>'">
                   <i class="fas fa-edit"></i>
                 </button>
@@ -52,12 +59,20 @@
                     <i class="fas fa-trash-alt"></i>
                   </button>
                 </form>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    </section>
-  </main>
+              <% } else { %>
+                <button class="action-btn edit-btn" onclick="alert('Log in to edit tasks')">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" onclick="alert('Log in to delete tasks')">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              <% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+</main>
 
 <%- include('Partials/footer') %>
