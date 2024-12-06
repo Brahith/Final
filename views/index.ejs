@@ -3,11 +3,10 @@
 <!-- Header Section -->
 <header>
   <div class="logo-container">
-    <h1>Task Manager</h1>
+    <h1><a href="/" class="nav-link">Task Manager</a></h1>
   </div>
   <div class="header-buttons">
     <!-- Navigation Links -->
-    <a href="/" class="nav-link"></a>
     <% if (typeof displayName === 'string' && displayName) { %>
       <span>Welcome, <%= displayName %></span>
       <a class="nav-link" href="/logout">
